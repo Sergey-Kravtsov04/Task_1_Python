@@ -6,7 +6,8 @@ while True:
     positiveSum = 0
     charChecker=True
     userInput = (input("Введите положительное натуральное число:"))
-    if(userInput =="exit")
+    if(userInput =="exit"):
+        break
     for ch in userInput:
         if(ch == '0' or ch == '1' or ch == '2' or ch == '3' or ch == '4' or ch == '5' or ch == '6' or ch == '7' or
            ch == '8' or ch == '9'):

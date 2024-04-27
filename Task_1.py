@@ -1,14 +1,14 @@
-isOpen = True
 print("Эта программа выведет вам длину введённого числа")
 print("Для выхода введите - exit\n")
-while isOpen:
+while True:
     charChecker = True
-    userInput = (input("Введите число:"))
+    userInput = input("Введите число:")
     if(userInput=="exit"):
-        isOpen=False
-    for ch in userInput:
-        if(ch == '0' or ch == '1' or ch == '2' or ch == '3' or ch == '4' or ch == '5' or ch == '6' or ch == '7' or
-           ch == '8' or ch == '9'):
+        break
+    for character in userInput:
+        if(character == '0' or character == '1' or character == '2' or character == '3' 
+           or character == '4' or character == '5' or character == '6' or
+             character == '7' or character == '8' or character == '9'):
             pass
         else:
             charChecker=False
