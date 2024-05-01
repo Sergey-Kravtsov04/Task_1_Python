@@ -1,13 +1,15 @@
-def sum(x:int,y:int):
+def fold(x:int,y:int):
     return x+y
-def min(x:int,y:int):
+def subtract(x:int,y:int):
     return x-y
-def umn(x:int,y:int):
+def multiply(x:int,y:int):
     return x*y
-def del1(x:int,y:int):
+def divide(x:int,y:int):
     try:
         return x/y
     except ZeroDivisionError as e:
+        print(e)
+    except Exception as e:
         print(e)
 def step(x:int,y:int):
     return x**y
@@ -26,25 +28,19 @@ while isOpen:
     if(userInput == '6'):
         isOpen = exit()
     elif(userInput.isdigit() and userInput in ['1','2','3','4','5']):  #проверка ввода операции
-        firstNum = (input("Введите первое число:")) 
-        secondNum = (input("Введите второе число:"))
-        if(firstNum.isdigit() and secondNum.isdigit()):  #Проверка введенных чисел(это дополнительно)
+        try:
+            firstNum = int(input("Введите первое число:")) 
+            secondNum = int(input("Введите второе число:"))
             if(userInput =='1'):
-                print(f"{firstNum} + {secondNum} =",sum(int(firstNum),int(secondNum)))
+                print(f"{firstNum} + {secondNum} =",fold(firstNum,secondNum))
             elif(userInput =='2'):
-                print(f"{firstNum} - {secondNum} =",min(int(firstNum),int(secondNum)))
+                print(f"{firstNum} - {secondNum} =",subtract(firstNum, secondNum))
             elif(userInput =='3'):
-                print(f"{firstNum} * {secondNum} =",umn(int(firstNum),int(secondNum)))
+                print(f"{firstNum} * {secondNum} =",subtract(firstNum,secondNum))
             elif(userInput =='4'):
-                print(f"{firstNum} / {secondNum} =",del1(int(firstNum),int(secondNum)))
+                print(f"{firstNum} / {secondNum} =",divide(firstNum,secondNum))
             elif(userInput =='5'):
-                print(f"{firstNum} ** {secondNum} =",step(int(firstNum),int(secondNum)))
-                #Я не совсем понимаю зачем эта проверка, если мы вводим числа как строки, проверяем числа ли они и преобразуем их в int, в случае True
-                #Если поставить int на input, то в этом вообще смысла нет, так как оно вылетит при вводе другого типа данных
-                #Может try-exception нужен, но по условиям его здесь быть не должно
-                #В любом случае, я показал, что могу пользоваться этим инструментом 
-        elif not (isinstance(firstNum,int) or isinstance(secondNum, int)):  #ValidationError нет по непонятным причинам
-            raise ValueError("Wrong DataType")
-    else:
-        print("Некорректный номер операции")
+                print(f"{firstNum} ** {secondNum} =",step(firstNum,secondNum))
+        except Exception:
+            print("Invalid Data type")
 input()
