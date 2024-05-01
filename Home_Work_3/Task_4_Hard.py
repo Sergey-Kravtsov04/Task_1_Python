@@ -26,9 +26,9 @@ class Wallet:
         print(f"Вы уверены, что хотите купить {finalProd}, за {finalSum} {self.valuta[0]}")
         paymentInput = (input("Y/N:")).lower()
         if(paymentInput == 'y'):
-            if(self.balance>=finalSum):
-                self.balance-=finalSum
-                print(f"На счету осталось{self.balance} {self.valuta[0]}")
+            if(self.balance_rub>=finalSum):
+                self.balance_rub-=finalSum
+                print(f"На счету осталось{self.balance_rub} {self.valuta[0]}")
             else:
                 print("У вас недостаточно денег!!!")
         else:
