@@ -1,6 +1,6 @@
 class Wallet:
-    balance_rub:int
-    balance_dol:int
+    _balance_rub:int
+    _balance_dol:int
     valuta: list
     walletName:str
     def __init__(self, balance_rub:int=0,balance_dol:int=0, walletName:str="",valuta:list=["руб","дол"]):
@@ -62,9 +62,9 @@ class Wallet:
                 print("недостаточно средства")
             pass
 class Crypto_Wallet(Wallet):
-    coin:int 
-    BTC:int
-    ETH: int
+    _coin:int 
+    _BTC:int
+    _ETH: int
     valutaCoin:list =['BTC','ETH']
     def __init__(self, coin:int=0,BTC:int=0,ETH:int=0,balance_rub:int=0,balance_dol:int=0, walletName:str="",valuta:list=["руб","дол"]):
         super().__init__(balance_rub,balance_dol,walletName,valuta)
@@ -145,7 +145,7 @@ while True:
             userInput = input("Введите номер операции:")
             if(userInput =='1'):
                 try:
-                    valutaInput = int(input("С какой валютой буде проведена операция?\n1 - Рубли\n2 - Доллары\n"))
+                    valutaInput = int(input("С какой валютой будет проведена операция?\n1 - Рубли\n2 - Доллары\n"))
                     depositInput=int(input("Введите сумму, которую хотите положить на кошелёк:"))
                     cryptoWallet.deposit(depositInput,cryptoWallet.valuta[valutaInput-1])
                 except Exception as e:
