@@ -1,9 +1,10 @@
-def fibonacci(num:int):
-    l =[1,1]
+def fibonacci(num:int, dct:dict):
     for i in range(num):
-        l.append(l[i+1]+l[i])
-        yield l[i]
+        dct[i+3] = dct.get(i+1,0)+dct.get(i+2,0)  
+        yield dct.get(i+1,0)  
+
 step_num = 9
-gen = fibonacci(step_num)
+step_dict = {1:1, 2:1}
+gen = fibonacci(step_num,step_dict)
 for i in range(step_num):  #Я не нашёл лучшего метода передать в итератор кол-во итераций
     print(next(gen))
