@@ -3,8 +3,9 @@ from Task_3 import factorial
 import time
 
 class TestCase(unittest.TestCase):
-    def setUp(self) -> None:
+    def setUp(self):
         self.start_time = time.time()
+        print(self.start_time)
 
     def test_factorial(self):
         self.assertEqual(factorial(2),2)
@@ -14,6 +15,6 @@ class TestCase(unittest.TestCase):
         self.assertRaises(ValueError,factorial,9223372036854775807)  #sys.maxsize
         self.assertRaises(TypeError,factorial,"a")
         self.assertRaises(TypeError,factorial,[3])
-    def tearDown(self) -> None:
-        t=self.start_time-time.time()
-        print(t)
+    def tearDown(self):
+        self.ourTime=self.start_time-time.time()
+        print(self.ourTime)  #Если честно, то я не знаю, почему оно не выводиться
