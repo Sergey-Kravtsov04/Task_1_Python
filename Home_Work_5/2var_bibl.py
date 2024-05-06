@@ -75,7 +75,7 @@ while True:
         [0, sin(angle), cos(angle)],
     ])
 
-    angle += 0.05
+    angle += 0.03
 
     screen.fill(black)
 
